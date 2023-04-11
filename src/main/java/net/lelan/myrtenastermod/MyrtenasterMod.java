@@ -1,6 +1,9 @@
 package net.lelan.myrtenastermod;
 
 import com.mojang.logging.LogUtils;
+import net.lelan.myrtenastermod.item.ModCreativeModeTabs;
+import net.lelan.myrtenastermod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -21,6 +24,8 @@ public class MyrtenasterMod {
     public MyrtenasterMod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -33,7 +38,9 @@ public class MyrtenasterMod {
     }
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
-
+        if (event.getTab() == ModCreativeModeTabs.MYRTENASTER_TAB) {
+            event.accept(ModItems.MYRTENASTER);
+        }
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
