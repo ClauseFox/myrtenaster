@@ -1,9 +1,9 @@
 package net.lelan.myrtenastermod;
 
 import com.mojang.logging.LogUtils;
+import net.lelan.myrtenastermod.effect.ModEffects;
 import net.lelan.myrtenastermod.item.ModCreativeModeTabs;
 import net.lelan.myrtenastermod.item.ModItems;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -25,6 +25,7 @@ public class MyrtenasterMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModEffects.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

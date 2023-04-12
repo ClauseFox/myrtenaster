@@ -1,5 +1,11 @@
 {
   "item.myrtenastermod.myrtenaster": "Myrtenaster",
 
-  "creativemodetab.myrtenaster_tab": "Myrtenaster"
+  "creativemodetab.myrtenaster_tab": "Myrtenaster",
+
+  "effect.myrtenastermod.electrified": "Electrified",
+
+
+  "key.category.myrtenastermod.myrtenaster": "Myrtenaster Mod",
+  "key.myrtenastermod.switch_element": "Swtich Element"
 }
