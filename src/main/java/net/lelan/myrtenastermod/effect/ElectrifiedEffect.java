@@ -11,8 +11,13 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
+
+
 
 public class ElectrifiedEffect extends MobEffect {
+	public int tick = 1;
+
 	public ElectrifiedEffect(MobEffectCategory mobEffectCategory, int color) {
 		super(mobEffectCategory, color);
 	}
@@ -27,12 +32,15 @@ public class ElectrifiedEffect extends MobEffect {
 			ServerLevel world = ((ServerLevel) pLivingEntity.level);
 			BlockPos position = pLivingEntity.blockPosition();
 
-			EntityType.LIGHTNING_BOLT.spawn(world, (ItemStack) null, null, position, MobSpawnType.TRIGGERED, true, true);
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				throw new RuntimeException(e);
+			if (tick % 60 == 0) {
+				EntityType.LIGHTNING_BOLT.spawn(world, (ItemStack) null, null, position, MobSpawnType.TRIGGERED, true, true);
+/*				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) {
+					throw new RuntimeException(e);
+				}*/
 			}
+			tick++;
 		}
 		super.applyEffectTick(pLivingEntity, pAmplifier);
 	}
@@ -41,5 +49,4 @@ public class ElectrifiedEffect extends MobEffect {
 	public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
 		return true;
 	}
-
 }
