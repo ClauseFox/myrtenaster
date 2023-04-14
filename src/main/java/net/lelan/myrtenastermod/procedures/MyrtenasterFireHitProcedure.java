@@ -27,12 +27,14 @@ public class MyrtenasterFireHitProcedure {
     }
 
     private static void execute(@Nullable Event event, Level world, LivingEntity pTarget, LivingEntity pAttacker) {
-        if (pTarget == null || pAttacker == null && MyrtenasterItem.current_element.equals("fire"))
+        if (pTarget == null || pAttacker == null)
             return;
+        if (MyrtenasterItem.current_element.equals("fire") && pAttacker.getMainHandItem().toString().equals("1 myrtenaster")) {
         pTarget.setSecondsOnFire(10);
-        for (int index0 = 0; index0 < (int) (1000); index0++) {
-            world.addParticle(ParticleTypes.FLAME, (pAttacker.getX()), (pAttacker.getY()), (pAttacker.getZ()), ((Math.random() / 2 + pTarget.getX() - pAttacker.getX()) / 2), ((Math.random() / 2 + pTarget.getY() - pAttacker.getY()) / 2),
-                    ((Math.random() / 2 + pTarget.getZ() - pAttacker.getZ()) / 2));
+            for (int index0 = 0; index0 < (int) (1000); index0++) {
+                world.addParticle(ParticleTypes.FLAME, (pAttacker.getX()), (pAttacker.getY()), (pAttacker.getZ()), ((Math.random() / 2 + pTarget.getX() - pAttacker.getX()) / 2), ((Math.random() / 2 + pTarget.getY() - pAttacker.getY()) / 2),
+                        ((Math.random() / 2 + pTarget.getZ() - pAttacker.getZ()) / 2));
+            }
         }
     }
 }
