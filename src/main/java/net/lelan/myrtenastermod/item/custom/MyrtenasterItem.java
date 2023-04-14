@@ -12,6 +12,8 @@ import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.level.Level;
 
+import static net.lelan.myrtenastermod.event.ModEvents.airExecute;
+
 public class MyrtenasterItem extends SwordItem {
 
 	public static String current_element = "fire";
@@ -24,6 +26,9 @@ public class MyrtenasterItem extends SwordItem {
 	public boolean hurtEnemy(ItemStack pItemStack, LivingEntity pTarget, LivingEntity pAttacker) {
 		if (current_element == "electro") {
 			pTarget.addEffect(new MobEffectInstance(ModEffects.ELECTRIFIED.get(), 200, 0), pAttacker);
+		} else if (current_element == "air") {
+			airExecute(pTarget);
+
 		}
 		return super.hurtEnemy(pItemStack, pTarget, pAttacker);
 	}

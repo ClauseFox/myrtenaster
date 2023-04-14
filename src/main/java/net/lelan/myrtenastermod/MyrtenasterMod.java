@@ -5,6 +5,7 @@ import net.lelan.myrtenastermod.effect.ModEffects;
 import net.lelan.myrtenastermod.item.ModCreativeModeTabs;
 import net.lelan.myrtenastermod.item.ModItems;
 import net.lelan.myrtenastermod.networking.ModMessages;
+import net.lelan.myrtenastermod.particle.ModParticles;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.CreativeModeTabEvent;
@@ -33,6 +34,8 @@ public class MyrtenasterMod {
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
+
+        ModParticles.register(modEventBus);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

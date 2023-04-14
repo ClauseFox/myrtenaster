@@ -9,6 +9,8 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.phys.Vec3;
+
 
 import java.util.Map;
 
@@ -56,5 +58,15 @@ public class ModEvents {
             world.setBlock(_bp, _bs, 3);
         }
     }
+
+    public static void airExecute(Entity entity) {
+        if (entity == null)
+            return;
+        entity.setDeltaMovement(new Vec3(Math.pow(entity.getDeltaMovement().x(), 2), (entity.getDeltaMovement().y()), (entity.getDeltaMovement().z() * 6)));
+
+
+
+    }
+
 
 }
