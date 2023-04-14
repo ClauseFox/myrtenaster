@@ -65,7 +65,8 @@ public class ModEvents {
     public static void airExecute(Entity entity) {
         if (entity == null)
             return;
-        entity.setDeltaMovement(new Vec3(Math.pow(entity.getDeltaMovement().x(), 2), (entity.getDeltaMovement().y()), (entity.getDeltaMovement().z() * 6)));
+        entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x() * 6), (entity.getDeltaMovement().y()), (entity.getDeltaMovement().z() * 6)));
+
 
 
 
