@@ -14,7 +14,7 @@ public class ModItems {
 			DeferredRegister.create(ForgeRegistries.ITEMS, MyrtenasterMod.MOD_ID);
 
 	public static final RegistryObject<Item> MYRTENASTER = ITEMS.register("myrtenaster",
-			() -> new MyrtenasterItem(Tiers.NETHERITE, 6, 5f, new Item.Properties().stacksTo(1)));
+			() -> new MyrtenasterItem(Tiers.NETHERITE, 0, 3f, new Item.Properties().stacksTo(1)));
 
 
 	public static void register(IEventBus eventBus) {

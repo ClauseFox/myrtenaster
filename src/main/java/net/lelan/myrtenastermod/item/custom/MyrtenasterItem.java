@@ -14,7 +14,7 @@ import net.minecraft.world.level.Level;
 
 public class MyrtenasterItem extends SwordItem {
 
-	public static String current_element = "electro";
+	public static String current_element = "fire";
 
 	public MyrtenasterItem(Tier tier, int damage, float attackSpeed, Properties properties) {
 		super(tier, damage, attackSpeed, properties);
@@ -42,7 +42,6 @@ public class MyrtenasterItem extends SwordItem {
 		}
 		return ar;
 	}
-
 
 
 }

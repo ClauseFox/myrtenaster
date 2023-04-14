@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.properties.Property;
 import java.util.Map;
 
 public class ModEvents {
+
     public static void earthExecute(LevelAccessor world, Entity entity) {
         if (entity == null)
             return;
@@ -55,6 +56,5 @@ public class ModEvents {
             world.setBlock(_bp, _bs, 3);
         }
     }
-
 
 }

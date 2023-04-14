@@ -1,13 +1,17 @@
 package net.lelan.myrtenastermod.event;
 
 import net.lelan.myrtenastermod.MyrtenasterMod;
+import net.lelan.myrtenastermod.client.ElementHudOverlay;
 import net.lelan.myrtenastermod.item.ModItems;
 import net.lelan.myrtenastermod.item.custom.MyrtenasterItem;
+import net.lelan.myrtenastermod.networking.ModMessages;
+import net.lelan.myrtenastermod.networking.packet.SwitchingElementC2SPacket;
 import net.lelan.myrtenastermod.util.KeyBinding;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.InputEvent;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,15 +24,8 @@ public class ClientEvents {
 		@SubscribeEvent
 		public static void onKeyInput(InputEvent.Key event) {
 			if (KeyBinding.SWITCHING_KEY.consumeClick()) {
-				if (index == 4) {
-					index = -1;
-				}
-				index++;
-				String elements[];
-				elements = new String[]{"fire", "earth", "electro", "water", "air"};
-				MyrtenasterItem.current_element = elements[index];
-
-				Minecraft.getInstance().player.sendSystemMessage(Component.literal(MyrtenasterItem.current_element));
+				//Everything in here happens on the Client
+				ModMessages.sendToServer(new SwitchingElementC2SPacket());
 			}
 		}
 	}
@@ -38,6 +35,11 @@ public class ClientEvents {
 		@SubscribeEvent
 		public static void onKeyRegister(RegisterKeyMappingsEvent event) {
 			event.register(KeyBinding.SWITCHING_KEY);
+		}
+
+		@SubscribeEvent
+		public static void registerGUIOverlays(RegisterGuiOverlaysEvent event) {
+			event.registerAboveAll("element", ElementHudOverlay.HUD_ELEMENT);
 		}
 	}
 

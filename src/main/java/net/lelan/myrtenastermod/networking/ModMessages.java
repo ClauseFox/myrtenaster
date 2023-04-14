@@ -1,11 +1,12 @@
 package net.lelan.myrtenastermod.networking;
 
 import net.lelan.myrtenastermod.MyrtenasterMod;
-import net.lelan.myrtenastermod.networking.packet.IdkC2SPacket;
+import net.lelan.myrtenastermod.networking.packet.SwitchingElementC2SPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 public class ModMessages {
@@ -26,10 +27,10 @@ public class ModMessages {
 
 		INSTANCE = net;
 
-		net.messageBuilder(IdkC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
-				.decoder(IdkC2SPacket::new)
-				.encoder(IdkC2SPacket::toBytes)
-				.consumerMainThread(IdkC2SPacket::handle)
+		net.messageBuilder(SwitchingElementC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(SwitchingElementC2SPacket::new)
+				.encoder(SwitchingElementC2SPacket::toBytes)
+				.consumerMainThread(SwitchingElementC2SPacket::handle)
 				.add();
 
 	}
@@ -39,7 +40,7 @@ public class ModMessages {
 	}
 
 	public static <MSG> void sendToPlayer(MSG message, ServerPlayer player) {
-
+		INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), message);
 	}
 
 }
