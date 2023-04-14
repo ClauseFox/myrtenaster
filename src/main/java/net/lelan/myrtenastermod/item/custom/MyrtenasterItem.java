@@ -29,9 +29,7 @@ public class MyrtenasterItem extends SwordItem {
 		if (current_element == "electro") {
 			pTarget.addEffect(new MobEffectInstance(ModEffects.ELECTRIFIED.get(), 200, 0), pAttacker);
 		} else if (current_element == "fire") {
-			boolean retval = super.hurtEnemy(pItemStack, pTarget, pAttacker);
 			MyrtenasterFireHitProcedure.execute(pTarget.level, pTarget, pAttacker);
-			return retval;
 		} else if (current_element == "air") {
 			airExecute(pTarget);
 
@@ -53,7 +51,4 @@ public class MyrtenasterItem extends SwordItem {
 		}
 		return ar;
 	}
-
-
-
 }

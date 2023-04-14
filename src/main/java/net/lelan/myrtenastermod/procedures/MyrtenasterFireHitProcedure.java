@@ -1,5 +1,6 @@
 package net.lelan.myrtenastermod.procedures;
 
+import net.lelan.myrtenastermod.item.custom.MyrtenasterItem;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
@@ -16,7 +17,7 @@ import javax.annotation.Nullable;
 public class MyrtenasterFireHitProcedure {
     @SubscribeEvent
     public static void onEntityAttacked(LivingAttackEvent event) {
-        if (event != null && event.getEntity() != null) {
+        if (event != null && event.getEntity() != null && MyrtenasterItem.current_element.equals("fire")) {
             execute(event, event.getEntity().level, event.getEntity(), (LivingEntity) event.getSource().getEntity());
         }
 }
@@ -26,7 +27,7 @@ public class MyrtenasterFireHitProcedure {
     }
 
     private static void execute(@Nullable Event event, Level world, LivingEntity pTarget, LivingEntity pAttacker) {
-        if (pTarget == null || pAttacker == null)
+        if (pTarget == null || pAttacker == null && MyrtenasterItem.current_element.equals("fire"))
             return;
         pTarget.setSecondsOnFire(10);
         for (int index0 = 0; index0 < (int) (1000); index0++) {
