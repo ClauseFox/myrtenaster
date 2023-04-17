@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "myrtenastermod:water_droplet"
+    },
+    "title": "Let The Water Burn!",
+    "description": "Aquire a water droplet",
+    "frame": "task",
+    "show_toast": true,
+    "annouce_to_chat": true
+  },
+  "parent": "myrtenastermod:myrtenastermod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "myrtenastermod:water_droplet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

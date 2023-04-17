@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "myrtenastermod:myrtenaster"
+    },
+    "title": "The Almighty",
+    "description": "Craft The Myrtenaster",
+    "frame": "task",
+    "show_toast": true,
+    "annouce_to_chat": true
+  },
+  "parent": "myrtenastermod:earth_essence",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "myrtenastermod:myrtenaster"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

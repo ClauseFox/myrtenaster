@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "myrtenastermod:myrtenaster"
+    },
+    "title": "Myrtenaster",
+    "description": "The way to a powerful sword!",
+    "frame": "task",
+    "show_toast": true,
+    "annouce_to_chat": true,
+    "background": "myrtenastermod:textures/block/fire_ore.png"
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "myrtenastermod:fire_essence",
+              "myrtenastermod:earth_essence",
+              "myrtenastermod:air_essence",
+              "myrtenastermod:energy_cell",
+              "myrtenastermod:water_droplet"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "myrtenastermod:fire_essence"
+    },
+    "title": "Flaming Hot",
+    "description": "Aquire a fire essence",
+    "frame": "task",
+    "show_toast": true,
+    "annouce_to_chat": true
+  },
+  "parent": "myrtenastermod:myrtenastermod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "myrtenastermod:fire_essence"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

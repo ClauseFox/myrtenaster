@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "myrtenastermod:air_essence"
+    },
+    "title": "Windy Flower",
+    "description": "Aquire an air essence",
+    "frame": "task",
+    "show_toast": true,
+    "annouce_to_chat": true
+  },
+  "parent": "myrtenastermod:myrtenastermod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "myrtenastermod:air_essence"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

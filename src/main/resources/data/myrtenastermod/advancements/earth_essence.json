@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "myrtenastermod:earth_essence"
+    },
+    "title": "Disguised Rarity",
+    "description": "Aquire an earth essence",
+    "frame": "task",
+    "show_toast": true,
+    "annouce_to_chat": true
+  },
+  "parent": "myrtenastermod:myrtenastermod",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "myrtenastermod:earth_essence"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
