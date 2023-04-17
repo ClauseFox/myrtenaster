@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "myrtenastermod:block/deepslate_energy_ore"
+  }
+}

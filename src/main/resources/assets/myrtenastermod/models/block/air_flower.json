@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "myrtenastermod:block/air_flower"
+  },
+  "render_type": "cutout"
+}

@@ -11,5 +11,4 @@ public class KeyBinding {
 
 	public static final KeyMapping SWITCHING_KEY = new KeyMapping(KEY_SWITCH_ELEMENT, KeyConflictContext.IN_GAME,
 			InputConstants.Type.KEYSYM, GLFW.GLFW_KEY_O, KEY_CATEGORY_MYRTENASTER);
-
 }

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:water_bucket"
+  },
+  "result": "myrtenastermod:water_droplet",
+  "experience": 200,
+  "cookingtime": 1600
+}

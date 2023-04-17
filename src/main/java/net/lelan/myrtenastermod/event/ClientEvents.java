@@ -2,7 +2,6 @@ package net.lelan.myrtenastermod.event;
 
 import net.lelan.myrtenastermod.MyrtenasterMod;
 import net.lelan.myrtenastermod.client.ElementHudOverlay;
-
 import net.lelan.myrtenastermod.item.custom.MyrtenasterItem;
 import net.lelan.myrtenastermod.networking.ModMessages;
 import net.lelan.myrtenastermod.networking.packet.SwitchingElementC2SPacket;

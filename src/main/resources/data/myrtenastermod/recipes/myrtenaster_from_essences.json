@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "myrtenastermod:fire_essence"
+    },
+    {
+      "item": "myrtenastermod:earth_essence"
+    },
+    {
+      "item": "myrtenastermod:air_essence"
+    },
+    {
+      "item": "myrtenastermod:energy_cell"
+    },
+    {
+      "item": "myrtenastermod:water_droplet"
+    },
+    {
+      "item": "minecraft:netherite_sword"
+    }
+  ],
+  "result": {
+    "item": "myrtenastermod:myrtenaster"
+  }
+}

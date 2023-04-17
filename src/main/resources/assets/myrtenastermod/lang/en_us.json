@@ -1,10 +1,23 @@
 {
-  "item.myrtenastermod.myrtenaster": "Myrtenaster",
-
   "creativemodetab.myrtenaster_tab": "Myrtenaster",
 
-  "effect.myrtenastermod.electrified": "Electrified",
 
+  "item.myrtenastermod.myrtenaster": "Myrtenaster",
+  "item.myrtenastermod.fire_essence": "Fire Essence",
+  "item.myrtenastermod.earth_essence": "Earth Essence",
+  "item.myrtenastermod.air_essence": "Air Essence",
+  "item.myrtenastermod.energy_cell": "Energy Cell",
+  "item.myrtenastermod.water_droplet": "Water Droplet",
+
+  "block.myrtenastermod.fire_ore": "Fire Ore",
+  "block.myrtenastermod.energy_ore": "Energy Ore",
+  "block.myrtenastermod.deepslate_energy_ore": "Deepslate Energy Ore",
+  "block.myrtenastermod.earth_block": "Earth Block",
+
+  "block.myrtenastermod.air_flower": "Air FLower",
+
+
+  "effect.myrtenastermod.electrified": "Electrified",
 
   "key.category.myrtenastermod.myrtenaster": "Myrtenaster Mod",
   "key.myrtenastermod.switch_element": "Swtich Element"

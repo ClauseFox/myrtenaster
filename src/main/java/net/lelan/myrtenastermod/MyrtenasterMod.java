@@ -1,6 +1,7 @@
 package net.lelan.myrtenastermod;
 
 import com.mojang.logging.LogUtils;
+import net.lelan.myrtenastermod.block.ModBlocks;
 import net.lelan.myrtenastermod.effect.ModEffects;
 import net.lelan.myrtenastermod.item.ModCreativeModeTabs;
 import net.lelan.myrtenastermod.item.ModItems;
@@ -27,6 +28,7 @@ public class MyrtenasterMod {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         ModEffects.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
@@ -44,7 +46,22 @@ public class MyrtenasterMod {
 
     private void addCreative(CreativeModeTabEvent.BuildContents event) {
         if (event.getTab() == ModCreativeModeTabs.MYRTENASTER_TAB) {
+            //Myrtenaster
             event.accept(ModItems.MYRTENASTER);
+
+            //Items
+            event.accept(ModItems.FIRE_ESSENCE);
+            event.accept(ModItems.EARTH_ESSENCE);
+            event.accept(ModItems.AIR_ESSENCE);
+            event.accept(ModItems.ENERGY_CELL);
+            event.accept(ModItems.WATER_DROPLET);
+
+            //Blocks
+            event.accept(ModBlocks.FIRE_ORE);
+            event.accept(ModBlocks.ENERGY_ORE);
+            event.accept(ModBlocks.DEEPSLATE_ENERGY_ORE);
+            event.accept(ModBlocks.EARTH_BLOCK);
+            event.accept(ModBlocks.AIR_FLOWER);
         }
     }
 
