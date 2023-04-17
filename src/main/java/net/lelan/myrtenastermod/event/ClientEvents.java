@@ -16,7 +16,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 public class ClientEvents {
-	public static int index = 0;
 	@Mod.EventBusSubscriber(modid = MyrtenasterMod.MOD_ID, value = Dist.CLIENT)
 	public static class ClientForgeEvents {
 

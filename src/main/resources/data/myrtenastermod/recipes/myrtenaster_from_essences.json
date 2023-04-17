@@ -1,5 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
   "ingredients": [
     {
       "item": "myrtenastermod:fire_essence"
@@ -14,10 +15,10 @@
       "item": "myrtenastermod:energy_cell"
     },
     {
-      "item": "myrtenastermod:water_droplet"
+      "item": "minecraft:netherite_sword"
     },
     {
-      "item": "minecraft:netherite_sword"
+      "item": "myrtenastermod:water_droplet"
     }
   ],
   "result": {
