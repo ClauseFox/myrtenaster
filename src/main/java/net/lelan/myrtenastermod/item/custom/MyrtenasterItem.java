@@ -2,6 +2,7 @@ package net.lelan.myrtenastermod.item.custom;
 
 import net.lelan.myrtenastermod.effect.ModEffects;
 import net.lelan.myrtenastermod.event.ModEvents;
+import net.lelan.myrtenastermod.procedures.MyrtenasterAirHitProcedure;
 import net.lelan.myrtenastermod.procedures.MyrtenasterFireHitProcedure;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -32,7 +33,7 @@ public class MyrtenasterItem extends SwordItem {
 			MyrtenasterFireHitProcedure.execute(pTarget.level, pTarget, pAttacker);
 		} else if (current_element == "air") {
 			airExecute(pTarget);
-
+			MyrtenasterAirHitProcedure.execute(pTarget.level, pTarget, pAttacker);
 		}
 		return super.hurtEnemy(pItemStack, pTarget, pAttacker);
 	}
