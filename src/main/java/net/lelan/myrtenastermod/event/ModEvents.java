@@ -66,10 +66,6 @@ public class ModEvents {
         if (entity == null)
             return;
         entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x() * 6), (entity.getDeltaMovement().y()), (entity.getDeltaMovement().z() * 6)));
-
-
-
-
     }
 
 
