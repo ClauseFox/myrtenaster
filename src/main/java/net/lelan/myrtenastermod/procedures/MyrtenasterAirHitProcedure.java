@@ -30,7 +30,7 @@ public class MyrtenasterAirHitProcedure {
             return;
         if (MyrtenasterItem.current_element.equals("air") && pAttacker.getMainHandItem().toString().equals("1 myrtenaster")) {
             for (int index0 = 0; index0 < (int) (1000); index0++) {
-                world.addParticle(ParticleTypes.EXPLOSION, (pTarget.getX()), (pTarget.getY()), (pTarget.getZ()), (0), (0), (0));
+                world.addParticle(ParticleTypes.EXPLOSION_EMITTER, (pTarget.getX()), (pTarget.getY()), (pTarget.getZ()), (0), (0), (0));
             }
         }
     }
