@@ -1,6 +1,7 @@
 package net.lelan.myrtenastermod.procedures;
 
 import net.lelan.myrtenastermod.item.custom.MyrtenasterItem;
+import net.lelan.myrtenastermod.networking.packet.ManaC2SPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
@@ -26,16 +27,20 @@ public class MyrtenasterAirHitProcedure {
     }
 
     public static void execute(Level world, LivingEntity pTarget, LivingEntity pAttacker) {
-        execute(null, world, pTarget, pAttacker);
+        if (ManaC2SPacket.mana >= 5) {
+            execute(null, world, pTarget, pAttacker);
+        }
     }
 
     private static void execute(@Nullable Event event, Level world, LivingEntity pTarget, LivingEntity pAttacker) {
-        if (pTarget == null || pAttacker == null)
-            return;
-        if (MyrtenasterItem.current_element.equals("air") && pAttacker.getMainHandItem().toString().equals("1 myrtenaster")) {
-            for (int index0 = 0; index0 < (int) (1000); index0++) {
-                world.playSound(null, new BlockPos(pAttacker.getX(), pAttacker.getY(), pAttacker.getZ()), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.puffer_fish.blow_out")), SoundSource.NEUTRAL, 1, 1);
-                world.addParticle(ParticleTypes.EXPLOSION, (pTarget.getX()), (pTarget.getY()), (pTarget.getZ()), (0), (0), (0));
+        if (ManaC2SPacket.mana >= 5) {
+            if (pTarget == null || pAttacker == null)
+                return;
+            if (MyrtenasterItem.current_element.equals("air") && pAttacker.getMainHandItem().toString().equals("1 myrtenaster")) {
+                for (int index0 = 0; index0 < (int) (1000); index0++) {
+                    world.playSound(null, new BlockPos(pAttacker.getX(), pAttacker.getY(), pAttacker.getZ()), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.puffer_fish.blow_out")), SoundSource.NEUTRAL, 1, 1);
+                    world.addParticle(ParticleTypes.EXPLOSION, (pTarget.getX()), (pTarget.getY()), (pTarget.getZ()), (0), (0), (0));
+                }
             }
         }
     }

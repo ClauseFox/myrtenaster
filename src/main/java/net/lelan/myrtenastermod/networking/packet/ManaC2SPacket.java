@@ -40,19 +40,23 @@ public class ManaC2SPacket {
 			ServerLevel level = player.getLevel();
 			index++;
 			if (MyrtenasterItem.current_element == "fire" && mana >= 8) {
-				mana -= 8;
+				mana -= 2;
 				player.sendSystemMessage(Component.translatable("-8").withStyle(ChatFormatting.RED));
 			} else if (MyrtenasterItem.current_element == "earth" && mana >= 10) {
-				mana -= 5;
-				player.sendSystemMessage(Component.translatable("-10").withStyle(ChatFormatting.DARK_GRAY));
+				mana -= 2;
+				if (index % 2 == 0) {
+					player.sendSystemMessage(Component.translatable("-10").withStyle(ChatFormatting.DARK_GRAY));
+				}
 			} else if (MyrtenasterItem.current_element == "electro" && mana >= 20) {
-				mana -= 20;
+				mana -= 5;
 				player.sendSystemMessage(Component.translatable("-20").withStyle(ChatFormatting.LIGHT_PURPLE));
 			} else if (MyrtenasterItem.current_element == "water" && mana >= 10) {
-				mana -= 5;
-				player.sendSystemMessage(Component.translatable("-10").withStyle(ChatFormatting.AQUA));
+				mana -= 2;
+				if (index % 2 == 0) {
+					player.sendSystemMessage(Component.translatable("-10").withStyle(ChatFormatting.AQUA));
+				}
 			} else if (MyrtenasterItem.current_element == "air" && mana >= 5) {
-				mana -= 5;
+				mana -= 2;
 				player.sendSystemMessage(Component.translatable("-5").withStyle(ChatFormatting.YELLOW));
 			}
 		});

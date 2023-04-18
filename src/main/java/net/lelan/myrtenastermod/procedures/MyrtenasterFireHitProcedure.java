@@ -1,6 +1,7 @@
 package net.lelan.myrtenastermod.procedures;
 
 import net.lelan.myrtenastermod.item.custom.MyrtenasterItem;
+import net.lelan.myrtenastermod.networking.packet.ManaC2SPacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.resources.ResourceLocation;
@@ -27,20 +28,24 @@ public class MyrtenasterFireHitProcedure {
 }
 
     public static void execute(Level world, LivingEntity pTarget, LivingEntity pAttacker) {
-        execute(null, world, pTarget, pAttacker);
+        if (ManaC2SPacket.mana >= 8) {
+            execute(null, world, pTarget, pAttacker);
+        }
     }
 
     private static void execute(@Nullable Event event, Level world, LivingEntity pTarget, LivingEntity pAttacker) {
-        if (pTarget == null || pAttacker == null)
-            return;
-        if (MyrtenasterItem.current_element.equals("fire") && pAttacker.getMainHandItem().toString().equals("1 myrtenaster")) {
-            //world.playSound(pAttacker, pAttacker.getOnPos(), ModSounds.MYRTENASTER_FIRE_HIT.get(), SoundSource.PLAYERS, 1f, 1f);
-            world.playSound(null, new BlockPos(pAttacker.getX(), pAttacker.getY(), pAttacker.getZ()), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.firecharge.use")), SoundSource.NEUTRAL, 1, 1);
+        if (ManaC2SPacket.mana >= 8) {
+            if (pTarget == null || pAttacker == null)
+                return;
+            if (MyrtenasterItem.current_element.equals("fire") && pAttacker.getMainHandItem().toString().equals("1 myrtenaster")) {
+                //world.playSound(pAttacker, pAttacker.getOnPos(), ModSounds.MYRTENASTER_FIRE_HIT.get(), SoundSource.PLAYERS, 1f, 1f);
+                world.playSound(null, new BlockPos(pAttacker.getX(), pAttacker.getY(), pAttacker.getZ()), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.firecharge.use")), SoundSource.NEUTRAL, 1, 1);
 
-            pTarget.setSecondsOnFire(10);
-            for (int index0 = 0; index0 < (int) (1000); index0++) {
-                world.addParticle(ParticleTypes.FLAME, (pAttacker.getX()), (pAttacker.getY()), (pAttacker.getZ()), ((Math.random() / 2 + pTarget.getX() - pAttacker.getX()) / 2), ((Math.random() / 2 + pTarget.getY() - pAttacker.getY()) / 2),
-                        ((Math.random() / 2 + pTarget.getZ() - pAttacker.getZ()) / 2));
+                pTarget.setSecondsOnFire(10);
+                for (int index0 = 0; index0 < (int) (1000); index0++) {
+                    world.addParticle(ParticleTypes.FLAME, (pAttacker.getX()), (pAttacker.getY()), (pAttacker.getZ()), ((Math.random() / 2 + pTarget.getX() - pAttacker.getX()) / 2), ((Math.random() / 2 + pTarget.getY() - pAttacker.getY()) / 2),
+                            ((Math.random() / 2 + pTarget.getZ() - pAttacker.getZ()) / 2));
+                }
             }
         }
     }
