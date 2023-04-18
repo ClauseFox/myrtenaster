@@ -41,19 +41,19 @@ public class ManaC2SPacket {
 			index++;
 			if (MyrtenasterItem.current_element == "fire" && mana >= 8) {
 				mana -= 8;
-				player.sendSystemMessage(Component.translatable("8 Mana was taken away").withStyle(ChatFormatting.RED));
+				player.sendSystemMessage(Component.translatable("-8").withStyle(ChatFormatting.RED));
 			} else if (MyrtenasterItem.current_element == "earth" && mana >= 10) {
 				mana -= 5;
-				player.sendSystemMessage(Component.translatable("10 Mana was taken away").withStyle(ChatFormatting.DARK_GRAY));
+				player.sendSystemMessage(Component.translatable("-10").withStyle(ChatFormatting.DARK_GRAY));
 			} else if (MyrtenasterItem.current_element == "electro" && mana >= 20) {
 				mana -= 20;
-				player.sendSystemMessage(Component.translatable("20 Mana was taken away").withStyle(ChatFormatting.LIGHT_PURPLE));
+				player.sendSystemMessage(Component.translatable("-20").withStyle(ChatFormatting.LIGHT_PURPLE));
 			} else if (MyrtenasterItem.current_element == "water" && mana >= 10) {
 				mana -= 5;
-				player.sendSystemMessage(Component.translatable("10 Mana was taken away").withStyle(ChatFormatting.AQUA));
+				player.sendSystemMessage(Component.translatable("-10").withStyle(ChatFormatting.AQUA));
 			} else if (MyrtenasterItem.current_element == "air" && mana >= 5) {
 				mana -= 5;
-				player.sendSystemMessage(Component.translatable("5 Mana was taken away").withStyle(ChatFormatting.YELLOW));
+				player.sendSystemMessage(Component.translatable("-5").withStyle(ChatFormatting.YELLOW));
 			}
 		});
 		return true;
