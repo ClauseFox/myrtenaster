@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "myrtenastermod:energy_ore"
+    "myrtenastermod:energy_ore",
+    "myrtenastermod:deepslate_energy_ore"
   ]
 }

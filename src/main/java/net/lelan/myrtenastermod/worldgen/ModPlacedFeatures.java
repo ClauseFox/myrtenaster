@@ -34,7 +34,7 @@ public class ModPlacedFeatures {
 
 		register(context, EARTH_BLOCK_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_EARTH_BLOCK_KEY),
 				ModOrePlacement.rareOrePlacement(1, //Amount of veins per chunk
-						HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(320))));
+						HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(300))));
 
 
 		register(context, AIR_FLOWER_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_AIR_FLOWER_KEY),

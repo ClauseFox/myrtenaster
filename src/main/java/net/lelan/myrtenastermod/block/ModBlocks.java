@@ -31,11 +31,11 @@ public class ModBlocks {
 
 	public static final RegistryObject<Block> DEEPSLATE_ENERGY_ORE = registerBlock("deepslate_energy_ore",
 			() -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
-					.strength(6.0f, 6.0f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
+					.strength(4.5f, 3.0f).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
 
 	public static final RegistryObject<Block> EARTH_BLOCK = registerBlock("earth_block",
 			() -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.DIRT)
-					.strength(1F).sound(SoundType.GRAVEL).requiresCorrectToolForDrops(), UniformInt.of(2, 5)));
+					.strength(2F).sound(SoundType.GRAVEL).requiresCorrectToolForDrops(), UniformInt.of(2, 5)));
 
 	public static final RegistryObject<Block> AIR_FLOWER = registerBlock("air_flower",
 			() -> new FlowerBlock(MobEffects.MOVEMENT_SPEED, 5,

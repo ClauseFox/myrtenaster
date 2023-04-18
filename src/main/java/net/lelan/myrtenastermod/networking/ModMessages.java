@@ -1,6 +1,7 @@
 package net.lelan.myrtenastermod.networking;
 
 import net.lelan.myrtenastermod.MyrtenasterMod;
+import net.lelan.myrtenastermod.networking.packet.ManaC2SPacket;
 import net.lelan.myrtenastermod.networking.packet.SwitchingElementC2SPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -31,6 +32,13 @@ public class ModMessages {
 				.decoder(SwitchingElementC2SPacket::new)
 				.encoder(SwitchingElementC2SPacket::toBytes)
 				.consumerMainThread(SwitchingElementC2SPacket::handle)
+				.add();
+
+
+		net.messageBuilder(ManaC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+				.decoder(ManaC2SPacket::new)
+				.encoder(ManaC2SPacket::toBytes)
+				.consumerMainThread(ManaC2SPacket::handle)
 				.add();
 
 	}

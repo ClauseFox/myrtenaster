@@ -1,6 +1,14 @@
 package net.lelan.myrtenastermod.event;
 
+import net.lelan.myrtenastermod.MyrtenasterMod;
+import net.lelan.myrtenastermod.mana.PlayerMana;
+import net.lelan.myrtenastermod.mana.PlayerManaProvider;
+import net.lelan.myrtenastermod.networking.ModMessages;
+import net.lelan.myrtenastermod.networking.packet.ManaC2SPacket;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
@@ -13,6 +21,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.LogicalSide;
+
 
 import java.util.Map;
 
@@ -70,4 +85,39 @@ public class ModEvents {
     }
 
 
+    //Mana stuff
+    @SubscribeEvent
+    public static void onAttachCapabilitiesPlayer(AttachCapabilitiesEvent<Entity> event) {
+        if (event.getObject() instanceof Player) {
+            if (!event.getObject().getCapability(PlayerManaProvider.PLAYER_MANA).isPresent()) {
+                event.addCapability(new ResourceLocation(MyrtenasterMod.MOD_ID, "properties"), new PlayerManaProvider());
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onPlayerCloned(PlayerEvent.Clone event) {
+        if(event.isWasDeath()) {
+            event.getOriginal().getCapability(PlayerManaProvider.PLAYER_MANA).ifPresent(oldStore -> {
+                event.getOriginal().getCapability(PlayerManaProvider.PLAYER_MANA).ifPresent(newStore -> {
+                    newStore.copyFrom(oldStore);
+                });
+            });
+        }
+    }
+
+    @SubscribeEvent
+    public static void onRegisterCapabilities(RegisterCapabilitiesEvent event) {
+        event.register(PlayerMana.class);
+    }
+
+    @SubscribeEvent
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+        if(event.side == LogicalSide.SERVER) {
+            if(ManaC2SPacket.mana > 0 && event.player.getRandom().nextFloat() < 0.050f) { // Once Every 10 Seconds avg but change later to every second
+                ManaC2SPacket.mana += 1;
+                event.player.sendSystemMessage(Component.literal("Subtracted 1 Mana").withStyle(ChatFormatting.DARK_AQUA));
+            }
+        }
+    }
 }

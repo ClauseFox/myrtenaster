@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "myrtenastermod:fire_ore",
-    "myrtenastermod:energy_ore"
+    "myrtenastermod:energy_ore",
+    "myrtenastermod:deepslate_energy_ore"
   ]
 }
