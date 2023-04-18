@@ -1,19 +1,18 @@
 package net.lelan.myrtenastermod.event;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.Vec3;
-
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Map;
 
@@ -37,6 +36,7 @@ public class ModEvents {
                     }
             }
             world.setBlock(_bp, _bs, 3);
+            world.playSound(null, new BlockPos(entity.getX(), entity.getY(), entity.getZ()), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.warden.dig")), SoundSource.NEUTRAL, 1, 1);
         }
     }
     public static void waterExecute(LevelAccessor world, Entity entity, ItemStack itemstack) {
@@ -59,6 +59,7 @@ public class ModEvents {
                     }
             }
             world.setBlock(_bp, _bs, 3);
+            world.playSound(null, new BlockPos(entity.getX(), entity.getY(), entity.getZ()), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.fishing_bobber.splash")), SoundSource.NEUTRAL, 1, 1);
         }
     }
 

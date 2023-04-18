@@ -1,0 +1,8 @@
+{
+  "myrtenaster_fire_hit": {
+    "subtitle": "sounds.myrtenastermod.myrtenaster_fire_hit",
+    "sounds": [
+      "myrtenastermod:myrtenaster_fire_hit"
+    ]
+  }
+}

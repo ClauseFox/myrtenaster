@@ -1,13 +1,17 @@
 package net.lelan.myrtenastermod.procedures;
 
 import net.lelan.myrtenastermod.item.custom.MyrtenasterItem;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 
@@ -30,7 +34,10 @@ public class MyrtenasterFireHitProcedure {
         if (pTarget == null || pAttacker == null)
             return;
         if (MyrtenasterItem.current_element.equals("fire") && pAttacker.getMainHandItem().toString().equals("1 myrtenaster")) {
-        pTarget.setSecondsOnFire(10);
+            //world.playSound(pAttacker, pAttacker.getOnPos(), ModSounds.MYRTENASTER_FIRE_HIT.get(), SoundSource.PLAYERS, 1f, 1f);
+            world.playSound(null, new BlockPos(pAttacker.getX(), pAttacker.getY(), pAttacker.getZ()), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("item.firecharge.use")), SoundSource.NEUTRAL, 1, 1);
+
+            pTarget.setSecondsOnFire(10);
             for (int index0 = 0; index0 < (int) (1000); index0++) {
                 world.addParticle(ParticleTypes.FLAME, (pAttacker.getX()), (pAttacker.getY()), (pAttacker.getZ()), ((Math.random() / 2 + pTarget.getX() - pAttacker.getX()) / 2), ((Math.random() / 2 + pTarget.getY() - pAttacker.getY()) / 2),
                         ((Math.random() / 2 + pTarget.getZ() - pAttacker.getZ()) / 2));

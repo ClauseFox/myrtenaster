@@ -30,6 +30,7 @@ public class MyrtenasterMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModEffects.register(modEventBus);
+        //ModSounds.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 

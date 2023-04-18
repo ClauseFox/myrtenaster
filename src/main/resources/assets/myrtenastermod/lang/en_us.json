@@ -21,5 +21,7 @@
 
 
   "key.category.myrtenastermod.myrtenaster": "Myrtenaster Mod",
-  "key.myrtenastermod.switch_element": "Swtich Element"
+  "key.myrtenastermod.switch_element": "Swtich Element",
+
+  "sounds.myrtenastermod.myrtenaster_fire_hit": "Myrtenaster Fire Hit Sound"
 }

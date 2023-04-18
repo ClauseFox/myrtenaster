@@ -1,13 +1,17 @@
 package net.lelan.myrtenastermod.procedures;
 
 import net.lelan.myrtenastermod.item.custom.MyrtenasterItem;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 
@@ -30,6 +34,7 @@ public class MyrtenasterAirHitProcedure {
             return;
         if (MyrtenasterItem.current_element.equals("air") && pAttacker.getMainHandItem().toString().equals("1 myrtenaster")) {
             for (int index0 = 0; index0 < (int) (1000); index0++) {
+                world.playSound(null, new BlockPos(pAttacker.getX(), pAttacker.getY(), pAttacker.getZ()), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.puffer_fish.blow_out")), SoundSource.NEUTRAL, 1, 1);
                 world.addParticle(ParticleTypes.EXPLOSION, (pTarget.getX()), (pTarget.getY()), (pTarget.getZ()), (0), (0), (0));
             }
         }
